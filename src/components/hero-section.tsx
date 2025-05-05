@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
@@ -7,6 +6,7 @@ import { RotatingText } from '@/components/ui/rotating-text';
 import { ShinyText } from '@/components/ui/shiny-text';
 import { Menu, X, ChevronDown, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { GradientButton } from '@/components/ui/gradient-button';
 
 interface Dot {
     x: number;
@@ -506,15 +506,12 @@ const InteractiveHero: React.FC = () => {
                     aria-label="Email"
                     className="flex-grow w-full sm:w-auto px-4 py-2 rounded-md bg-[#2a2a2a] border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-chair-primary focus:border-transparent transition-all"
                 />
-                <motion.button
+                <GradientButton
                     type="submit"
-                    className="w-full sm:w-auto bg-chair-primary text-chair-dark px-5 py-2 rounded-md text-sm font-semibold hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap shadow-sm hover:shadow-md flex-shrink-0"
-                    whileHover={{ scale: 1.03, y: -1 }}
-                    whileTap={{ scale: 0.97 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    className="w-full sm:w-auto py-2 px-4 rounded-md text-sm font-semibold flex-shrink-0"
                 >
                     Get Early Access
-                </motion.button>
+                </GradientButton>
             </motion.form>
 
             <motion.p

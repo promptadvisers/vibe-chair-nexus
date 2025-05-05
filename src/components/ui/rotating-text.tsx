@@ -2,23 +2,22 @@
 "use client";
 
 import React, {
-    useEffect,
-    useRef,
-    useState,
-    useCallback,
-    forwardRef,
-    useImperativeHandle,
-    useMemo,
-    type ReactNode,
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+  forwardRef,
+  useImperativeHandle,
+  useMemo,
 } from 'react';
 import {
-    motion,
-    AnimatePresence,
-    type Transition,
-    type VariantLabels,
-    type Target,
-    type AnimationControls,
-    type TargetAndTransition,
+  motion,
+  AnimatePresence,
+  type Transition,
+  type VariantLabels,
+  type Target,
+  type AnimationControls,
+  type TargetAndTransition,
 } from 'framer-motion';
 import { cn } from "@/lib/utils";
 
@@ -80,15 +79,7 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
     const [currentTextIndex, setCurrentTextIndex] = useState<number>(0);
 
     const splitIntoCharacters = (text: string): string[] => {
-      if (typeof Intl !== "undefined" && Intl.Segmenter) {
-        try {
-           const segmenter = new Intl.Segmenter("en", { granularity: "grapheme" });
-           return Array.from(segmenter.segment(text), (segment) => segment.segment);
-        } catch (error) {
-           console.error("Intl.Segmenter failed, falling back to simple split:", error);
-           return text.split('');
-        }
-      }
+      // Use simple split as a fallback for all environments
       return text.split('');
     };
 
@@ -170,9 +161,9 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
       [texts.length, currentTextIndex, handleIndexChange]
     );
 
-     const reset = useCallback(() => {
-        if (currentTextIndex !== 0) handleIndexChange(0);
-     }, [currentTextIndex, handleIndexChange]);
+    const reset = useCallback(() => {
+      if (currentTextIndex !== 0) handleIndexChange(0);
+    }, [currentTextIndex, handleIndexChange]);
 
     useImperativeHandle(ref, () => ({ next, previous, jumpTo, reset }), [next, previous, jumpTo, reset]);
 
