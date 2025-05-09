@@ -412,7 +412,7 @@ const InteractiveHero: React.FC = () => {
                         whileTap={{ scale: 0.97 }}
                         transition={{ type: "spring", stiffness: 400, damping: 15 }}
                     >
-                        Try For Free
+                        hello
                     </motion.a>
 
                     <motion.button
@@ -464,7 +464,7 @@ const InteractiveHero: React.FC = () => {
                 animate="visible"
                 className="text-4xl sm:text-5xl lg:text-[64px] font-semibold text-white leading-tight max-w-4xl mb-4"
             >
-                Intelligent chairs for<br />{' '}
+                hello<br />{' '}
                 <span className="inline-block h-[1.2em] sm:h-[1.2em] lg:h-[1.2em] overflow-hidden align-bottom">
                     <RotatingText
                         texts={['Perfect Posture', 'Ultimate Comfort', 'Productivity', 'Health Monitoring', 'Smart Living']}
